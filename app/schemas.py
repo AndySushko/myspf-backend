@@ -29,3 +29,34 @@ class UserLogin(BaseModel):
 
 class PhototypeUpdate(BaseModel):
     phototype: str
+
+class UvHourlyItem(BaseModel):
+    hour: str
+    value: float
+
+
+class UvDailyItem(BaseModel):
+    day: str
+    max_uv: float
+
+class UvDayForecast(BaseModel):
+    day: str
+    max_uv: float
+    hourly: list[UvHourlyItem]
+
+class UvOut(BaseModel):
+    current_uv: float
+    risk_level: str
+    skin_type: str
+    max_sun_time: str
+    hourly: list[UvHourlyItem]
+    daily: list[UvDayForecast]
+
+class RecommendationItem(BaseModel):
+    type: str
+    title: str
+    icon: str
+
+
+class RecommendationsOut(BaseModel):
+    recommendations: list[RecommendationItem]
